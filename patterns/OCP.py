@@ -202,7 +202,7 @@ class AndSpecification(Specification):
         основного кода фильтрации.
     """
 
-    def __init__(self, *args):
+    def __init__(self, *args: Specification):
         self.args = args
         # [SizeSpecification(Size.LARGE), ColorSpecification(Color.BLUE)]
 
@@ -226,7 +226,7 @@ class OrSpecification(Specification):
 
 class NotSpecification(Specification):
     """Инвертирует результат спецификации."""
-    def __init__(self, spec):
+    def __init__(self, spec: Specification):
         self.spec = spec
 
     def is_satisfied(self, item: Product) -> bool:
